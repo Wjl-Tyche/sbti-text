@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBTI 20题性格测试｜纯净四选项版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", system-ui, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+        .desc {
+            background: #f0f5ff;
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #4a5568;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eeeeee;
+        }
+        .q-title {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #2d3748;
+        }
+        .opt {
+            margin: 10px 0;
+            font-size: 14px;
+            padding: 9px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .opt:hover {
+            background-color: #f7f8fa;
+        }
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+        .submit-btn {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            background: #409eff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 20px 0;
+        }
+        .submit-btn:hover {
+            background: #2b85e4;
+        }
+        .result-wrap {
+            display: none;
+            padding: 24px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .result-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #409eff;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .result-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.9;
+        }
+        .tip {
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SBTI 20题性格测试</h1>
+        <div class="desc">
+            请凭第一直觉选择最贴合自己日常真实状态的选项，每题仅选一项，无对错、无优劣，完成后提交即可生成专属性格结果。
+        </div>
+
+        <form id="testForm">
+            <div class="question">
+                <div class="q-title">1、周末空闲一整天，你的首选状态是？</div>
+                <div class="opt"><input type="radio" name="q1" value="E" required> A、主动约好友出门聚会，享受热闹社交</div>
+                <div class="opt"><input type="radio" name="q1" value="I"> B、独处宅家，安静休息回血，享受个人时光</div>
+                <div class="opt"><input type="radio" name="q1" value="N"> C、尝试新鲜玩法、探索新地点，期待未知惊喜</div>
+                <div class="opt"><input type="radio" name="q1" value="S"> D、按熟悉节奏度日，追剧、做饭、放松，安稳踏实</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">2、面对临时改计划、突发变动，你的第一反应？</div>
+                <div class="opt"><input type="radio" name="q2" value="E" required> A、主动配合调整，快速对接他人重新安排</div>
+                <div class="opt"><input type="radio" name="q2" value="I"> B、默默接受变化，不想折腾、不愿过多沟通</div>
+                <div class="opt"><input type="radio" name="q2" value="P"> C、觉得新鲜有趣，乐于接受变数、尝试新方案</div>
+                <div class="opt"><input type="radio" name="q2" value="J"> D、心生烦躁，偏爱按原定计划稳定落地</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">3、与人产生观点分歧时，你最看重？</div>
+                <div class="opt"><input type="radio" name="q3" value="E" required> A、主动沟通辩论，当众理清问题、表达观点</div>
+                <div class="opt"><input type="radio" name="q3" value="I"> B、沉默回避争执，不愿正面冲突、消耗自己</div>
+                <div class="opt"><input type="radio" name="q3" value="T"> C、对错逻辑优先，讲道理、讲客观事实</div>
+                <div class="opt"><input type="radio" name="q3" value="F"> D、氛围优先，顾及对方情绪，委婉包容让步</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">4、畅想未来人生，你更偏向哪种期待？</div>
+                <div class="opt"><input type="radio" name="q4" value="E" required> A、期待多元社交、丰富经历、热闹鲜活的人生</div>
+                <div class="opt"><input type="radio" name="q4" value="I"> B、期待简单安稳、独处自由、内心丰盈的生活</div>
+                <div class="opt"><input type="radio" name="q4" value="N"> C、脑洞畅想未来，期待无限可能、突破与创新</div>
+                <div class="opt"><input type="radio" name="q4" value="S"> D、踏实落地规划，追求稳定生活、可见结果</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">5、大型社交聚会结束后，你的真实状态？</div>
+                <div class="opt"><input type="radio" name="q5" value="E" required> A、意犹未尽、精力充沛，还想继续社交互动</div>
+                <div class="opt"><input type="radio" name="q5" value="I"> B、身心疲惫、能量耗尽，急需独处安静回血</div>
+                <div class="opt"><input type="radio" name="q5" value="P"> C、享受即兴氛围，喜欢无套路、无拘束的互动</div>
+                <div class="opt"><input type="radio" name="q5" value="J"> D、觉得流程走完、任务收尾，踏实安心结束</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">6、日常做事、推进任务的核心风格是？</div>
+                <div class="opt"><input type="radio" name="q6" value="E" required> A、边做边交流，喜欢带动他人协作推进</div>
+                <div class="opt"><input type="radio" name="q6" value="I"> B、独立专注做事，不喜被打扰、被打断</div>
+                <div class="opt"><input type="radio" name="q6" value="P"> C、随性灵活变通，享受做事过程，不刻意卡点</div>
+                <div class="opt"><input type="radio" name="q6" value="J"> D、提前规划梳理，条理清晰，做完再放松</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">7、学习新知识、接收新信息，你更依赖？</div>
+                <div class="opt"><input type="radio" name="q7" value="E" required> A、与人交流探讨，在互动沟通中吸收知识</div>
+                <div class="opt"><input type="radio" name="q7" value="I"> B、独自钻研思考，安静复盘、深度消化内容</div>
+                <div class="opt"><input type="radio" name="q7" value="N"> C、直觉预判趋势，关注底层规律、隐藏关联</div>
+                <div class="opt"><input type="radio" name="q7" value="S"> D、相信事实数据，依托实操经验、具体细节</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">8、朋友情绪低落、向你倾诉烦恼，你会？</div>
+                <div class="opt"><input type="radio" name="q8" value="E" required> A、主动活跃氛围，积极开导、带动对方情绪</div>
+                <div class="opt"><input type="radio" name="q8" value="I"> B、安静陪伴倾听，默默支持，不主动多言</div>
+                <div class="opt"><input type="radio" name="q8" value="T"> C、理性拆解问题，精准分析原因、给出解决方案</div>
+                <div class="opt"><input type="radio" name="q8" value="F"> D、优先共情安抚，照顾对方感受，温柔包容</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">9、身处完全陌生的新环境，你的表现是？</div>
+                <div class="opt"><input type="radio" name="q9" value="E" required> A、主动破冰搭讪，快速融入集体、打开局面</div>
+                <div class="opt"><input type="radio" name="q9" value="I"> B、安静观察观望，被动等待他人主动靠近</div>
+                <div class="opt"><input type="radio" name="q9" value="P"> C、充满好奇心，乐于探索未知、适应新变化</div>
+                <div class="opt"><input type="radio" name="q9" value="J"> D、谨慎稳重行事，先摸清规则再逐步行动</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">10、长期来看，你最偏爱哪种生活节奏？</div>
+                <div class="opt"><input type="radio" name="q10" value="E" required> A、热闹鲜活、人际丰富、充满烟火气息</div>
+                <div class="opt"><input type="radio" name="q10" value="I"> B、清净简单、少纷扰内耗、独处自由</div>
+                <div class="opt"><input type="radio" name="q10" value="N"> C、新鲜多变、充满惊喜、持续成长突破</div>
+                <div class="opt"><input type="radio" name="q10" value="S"> D、规律稳定、踏实安稳、可控可预期</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">11、遇到棘手难题，你的第一处理思维？</div>
+                <div class="opt"><input type="radio" name="q11" value="E" required> A、找人沟通求助，通过交流梳理思路</div>
+                <div class="opt"><input type="radio" name="q11" value="I"> B、独自冷静思考，慢慢梳理、自我消化</div>
+                <div class="opt"><input type="radio" name="q11" value="N"> C、脑洞发散，尝试新颖、非常规的解法</div>
+                <div class="opt"><input type="radio" name="q11" value="S"> D、依托过往经验，用成熟方法落地解决</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">12、团队合作中，你更擅长的角色是？</div>
+                <div class="opt"><input type="radio" name="q12" value="E" required> A、活跃氛围、对接沟通、带动团队节奏</div>
+                <div class="opt"><input type="radio" name="q12" value="I"> B、默默兜底、专注执行、做好分内工作</div>
+                <div class="opt"><input type="radio" name="q12" value="P"> C、灵活适配变化，随时调整配合团队</div>
+                <div class="opt"><input type="radio" name="q12" value="J"> D、统筹规划流程，把控进度、落地结果</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">13、他人对你的评价，大多偏向？</div>
+                <div class="opt"><input type="radio" name="q13" value="E" required> A、开朗健谈、热情主动、擅长社交</div>
+                <div class="opt"><input type="radio" name="q13" value="I"> B、沉稳内敛、温柔低调、心思细腻</div>
+                <div class="opt"><input type="radio" name="q13" value="T"> C、理智清醒、客观公正、对事不对人</div>
+                <div class="opt"><input type="radio" name="q13" value="F"> D、善良体贴、共情力强、懂得换位思考</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">14、做重大选择时，你的核心判断依据？</div>
+                <div class="opt"><input type="radio" name="q14" value="E" required> A、参考他人建议，结合社交反馈做决定</div>
+                <div class="opt"><input type="radio" name="q14" value="I"> B、遵从内心想法，独立思考、自主抉择</div>
+                <div class="opt"><input type="radio" name="q14" value="N"> C、预判未来收益，看重长远可能性</div>
+                <div class="opt"><input type="radio" name="q14" value="S"> D、权衡当下利弊，看重实际落地价值</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">15、对待生活与工作中的规矩、原则？</div>
+                <div class="opt"><input type="radio" name="q15" value="E" required> A、灵活社交适配，规矩可随场景微调</div>
+                <div class="opt"><input type="radio" name="q15" value="I"> B、内心自有准则，不轻易被外界左右</div>
+                <div class="opt"><input type="radio" name="q15" value="P"> C、不拘泥死板规则，懂得灵活变通</div>
+                <div class="opt"><input type="radio" name="q15" value="J"> D、敬畏规则秩序，严谨自律、依规行事</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">16、空闲碎片时间，你更倾向如何度过？</div>
+                <div class="opt"><input type="radio" name="q16" value="E" required> A、刷社交动态、找人聊天、参与轻互动</div>
+                <div class="opt"><input type="radio" name="q16" value="I"> B、独处放空、发呆休息、沉浸式放松</div>
+                <div class="opt"><input type="radio" name="q16" value="N"> C、畅想脑洞、构思新想法、规划新目标</div>
+                <div class="opt"><input type="radio" name="q16" value="S"> D、做琐碎小事、整理物品、踏实度日</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">17、被他人误解、委屈时，你的反应是？</div>
+                <div class="opt"><input type="radio" name="q17" value="E" required> A、主动解释澄清，快速化解误会</div>
+                <div class="opt"><input type="radio" name="q17" value="I"> B、沉默不辩解，自行消化委屈情绪</div>
+                <div class="opt"><input type="radio" name="q17" value="T"> C、理性梳理逻辑，分清对错、客观看待</div>
+                <div class="opt"><input type="radio" name="q17" value="F"> D、内心敏感难过，在意他人看法与关系</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">18、接触新领域、新事物，你的态度是？</div>
+                <div class="opt"><input type="radio" name="q18" value="E" required> A、主动尝试体验，喜欢公开探索、与人分享</div>
+                <div class="opt"><input type="radio" name="q18" value="I"> B、先观望了解，私下慢慢尝试、不张扬</div>
+                <div class="opt"><input type="radio" name="q18" value="N"> C、好奇创新玩法，关注全新突破与变化</div>
+                <div class="opt"><input type="radio" name="q18" value="S"> D、优先关注实用性，看重能否落地有用</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">19、面对任务截止日期，你的状态？</div>
+                <div class="opt"><input type="radio" name="q19" value="E" required> A、和他人同步进度，喜欢一起推进完成</div>
+                <div class="opt"><input type="radio" name="q19" value="I"> B、自己把控节奏，安静独立完成任务</div>
+                <div class="opt"><input type="radio" name="q19" value="P"> C、不急不躁，灵活调整，适配各种节奏</div>
+                <div class="opt"><input type="radio" name="q19" value="J"> D、提前规划完成，绝不拖延、卡点赶工</div>
+            </div>
+
+            <div class="question">
+                <div class="q-title">20、看待人生，你更认同哪种生活理念？</div>
+                <div class="opt"><input type="radio" name="q20" value="E" required> A、热烈鲜活，多社交、多体验、多经历</div>
+                <div class="opt"><input type="radio" name="q20" value="I"> B、安静自在，懂独处、懂自愈、懂沉淀</div>
+                <div class="opt"><input type="radio" name="q20" value="N"> C、奔赴未知，敢想象、敢突破、敢创新</div>
+                <div class="opt"><input type="radio" name="q20" value="S"> D、立足当下，重踏实、重稳定、重结果</div>
+            </div>
+
+            <button type="submit" class="submit-btn">提交查看测试结果</button>
+        </form>
+
+        <div class="result-wrap" id="resultBox">
+            <div class="result-title" id="resTitle"></div>
+            <div class="result-text" id="resText"></div>
+        </div>
+        <p class="tip">本测试为趣味性格测试，仅供娱乐参考</p>
+    </div>
+
+    <script>
+        const form = document.getElementById('testForm');
+        const resultBox = document.getElementById('resultBox');
+        const resTitle = document.getElementById('resTitle');
+        const resText = document.getElementById('resText');
+
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            let score = {E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};
+
+            // 遍历20题答案
+            for(let i=1;i<=20;i++){
+                let val = document.querySelector(`input[name="q${i}"]:checked`).value;
+                score[val]++;
+            }
+
+            // 判断四维最高分
+            let EI = score.E >= score.I ? "E" : "I";
+            let SN = score.S >= score.N ? "S" : "N";
+            let TF = score.T >= score.F ? "T" : "F";
+            let JP = score.J >= score.P ? "J" : "P";
+
+            let type = EI+SN+TF+JP;
+            let desc = "";
+
+            // 16型人格简洁解读
+            switch(type){
+                case "ESTJ":desc="你是干练果断的管理者，做事严谨自律、逻辑清晰，擅长统筹规划、落地执行，责任心极强，处事公正靠谱，是团队与生活中的主导者。";break;
+                case "ESTP":desc="你是洒脱灵活的实践者，行动力超强、擅长随机应变，热爱体验生活、社交活跃，敢于尝试新鲜事物，适配力极强。";break;
+                case "ESFJ":desc="你是温暖热心的守护者，擅长照顾他人情绪、维系人际关系，待人真诚温柔，有责任心、共情力强，人缘极佳。";break;
+                case "ESFP":desc="你是活泼治愈的表演者，性格开朗热情、热爱生活，擅长活跃氛围、感知美好，自带感染力，乐观积极。";break;
+                case "ISTJ":desc="你是沉稳靠谱的实干家，严谨细致、踏实稳重，做事有条理、坚守原则，低调务实，是最值得信赖的伙伴。";break;
+                case "ISTP":desc="你是冷静通透的探索者，理性内敛、动手能力强，擅长解决实际问题，随性洒脱、不被束缚，遇事沉着冷静。";break;
+                case "ISFJ":desc="你是温柔细腻的守护者，低调温柔、体贴包容，心思缜密、擅长默默付出，共情力十足，懂得换位思考。";break;
+                case "ISFP":desc="你是纯粹浪漫的艺术家，内心柔软细腻、热爱美好，性格松弛佛系，不争不抢，拥有独特的审美与温柔底色。";break;
+                case "ENTJ":desc="你是自信果敢的领导者，思维开阔、格局远大，逻辑强势、目标明确，擅长布局规划，敢于突破、执行力拉满。";break;
+                case "ENTP":desc="你是脑洞十足的创新者，思维跳跃、善于思辨，好奇心强、热爱挑战，脑洞丰富、擅长打破常规。";break;
+                case "ENFJ":desc="你是温柔通透的教育家，共情力极强、善于引导他人，格局开阔、待人真诚，温暖且有力量，擅长治愈与带动他人。";break;
+                case "ENFP":desc="你是热烈自由的追梦人，脑洞天马行空、乐观开朗，热爱创新、向往自由，心思纯粹、永远充满新鲜感。";break;
+                case "INTJ":desc="你是理智清醒的战略家，思维缜密、远见十足，独立自律、善于深度思考，做事沉稳克制、目标清晰。";break;
+                case "INTP":desc="你是纯粹理性的思考者，热爱钻研、逻辑超强，脑洞丰富、善于拆解问题，随性佛系、专注自我世界。";break;
+                case "INFJ":desc="你是温柔坚定的咨询师，内心细腻通透、极具洞察力，温柔且有主见，善于共情、擅长思考人生与未来。";break;
+                case "INFP":desc="你是浪漫纯粹的理想家，内心丰盈敏感、善良温柔，坚持自我、向往纯粹，拥有独特的精神世界。";break;
+            }
+
+            resTitle.innerText = `你的SBTI性格类型：${type}`;
+            resText.innerText = desc;
+            resultBox.style.display = "block";
+            resultBox.scrollIntoView({behavior:"smooth"});
+        })
+    </script>
+</body>
+</html>
